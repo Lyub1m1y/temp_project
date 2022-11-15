@@ -49,6 +49,7 @@ char* s21_strcpy(char* dest, const char* src) {
   return dest;
 }
 
+
 char* s21_strncpy(char* dest, const char* src, s21_size_t n) {
   if (dest != NULL) {
     for (s21_size_t i = 0; *src != '\0' && i < n; i++) {
