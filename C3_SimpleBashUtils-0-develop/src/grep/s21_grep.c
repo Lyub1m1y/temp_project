@@ -1,4 +1,6 @@
 #include "s21_grep.h"
+#include <stdlib.h>
+
 regex_t regeex;
 regmatch_t match;
 
@@ -212,6 +214,7 @@ int patternCheck(char *argv[], struct flag_list flags, int f_sum_check,
       *pattern_comp = regcomp(&regeex, file_arg[i], REG_EXTENDED);
       *pattern_comp = regexec(&regeex, text_buffer, 0, NULL, 0);
       regfree(&regeex);
+      free(&regeex);
       if (*pattern_comp == 0) (*need_print)++;
       if (flags.flag_v == 0 && *need_print >= 1) {
         if ((strcmp(string_compare, text_buffer) != 0) ||
@@ -231,6 +234,7 @@ int patternCheck(char *argv[], struct flag_list flags, int f_sum_check,
         *pattern_comp = regcomp(&regeex, e_pattern_template[i], REG_EXTENDED);
         *pattern_comp = regexec(&regeex, text_buffer, 0, NULL, 0);
         regfree(&regeex);
+        free(&regeex);
         if (*pattern_comp == 0) (*need_print)++;
         if (flags.flag_v == 0 && *need_print >= 1) {
           if ((strcmp(string_compare, text_buffer) != 0) ||
@@ -246,6 +250,7 @@ int patternCheck(char *argv[], struct flag_list flags, int f_sum_check,
         *pattern_comp = regcomp(&regeex, e_pattern_template[i], REG_ICASE);
         *pattern_comp = regexec(&regeex, text_buffer, 0, NULL, 0);
         regfree(&regeex);
+        free(&regeex);
         if (*pattern_comp == 0) (*need_print)++;
         if (flags.flag_v == 0 && *need_print == 1) {
           flagWork(f_sum_check, flags, print_line_number, file_name,
@@ -266,6 +271,7 @@ int patternCheck(char *argv[], struct flag_list flags, int f_sum_check,
                text_buffer, line_success, line_success_invert, e_pattern_count,
                e_pattern_template);
       regfree(&regeex);
+      free(&regeex);
     }
     if (flags.flag_e == 0 && flags.flag_i == 0) {
       *pattern_comp = regcomp(&regeex, argv[optind], REG_EXTENDED);
@@ -273,6 +279,7 @@ int patternCheck(char *argv[], struct flag_list flags, int f_sum_check,
                text_buffer, line_success, line_success_invert, e_pattern_count,
                e_pattern_template);
       regfree(&regeex);
+      free(&regeex);
     }
   }
   return 0;
@@ -314,6 +321,7 @@ int flagWork(int f_sum_check, struct flag_list flags, int print_line_number,
           flag_duplicate = 1;
         }
         regfree(&regeex);
+        free(&regeex);
       }
     } else {
       while (!regexec(&regeex, text_buffer + offset, 1, &match, 0)) {
@@ -339,6 +347,7 @@ int flagWork(int f_sum_check, struct flag_list flags, int print_line_number,
         flag_duplicate = 1;
       }
       regfree(&regeex);
+      free(&regeex);
     }
     flag_duplicate = 0;
     *line_success_invert = print_line_number - *line_success;
@@ -398,6 +407,7 @@ int flagWork(int f_sum_check, struct flag_list flags, int print_line_number,
       }
     }
     regfree(&regeex);
+    free(&regeex);
   }
   return 0;
 }
