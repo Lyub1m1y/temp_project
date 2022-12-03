@@ -1,5 +1,5 @@
-GPP=g++
-FLAGS=-Wall -Werror -Wextra
+GPP=g++ -g
+# FLAGS=-Wall -Werror -Wextra
 task=task_3
 
 all: task

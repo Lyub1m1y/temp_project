@@ -3,15 +3,15 @@
 
 using namespace std;
 
-const string russianVowels = "ауоиэыяюеё";  // Массив с русскими глассными
-const int countVowels = (russianVowels.size() / 2);
+const string russianVowels = "aouiey";
+const int countVowels = russianVowels.size();
 
 int cmpVowels(string strInput) {
   int sum = 0;
   int lengthStrInput = strInput.size();
   for (int i = 0; i < lengthStrInput; i++) {
     for (int j = 0; j < countVowels; j++) {
-      if (strInput[i] == russianVowels[j]) {
+      if (strInput.at(i) == russianVowels.at(j)) {
         sum++;
       }
     }
@@ -20,7 +20,6 @@ int cmpVowels(string strInput) {
 }
 
 int main() {
-  setlocale(LC_ALL, "ru");
   string strInput;
   cin >> strInput;
   int sum = 0;
