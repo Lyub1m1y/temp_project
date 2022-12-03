@@ -1,9 +1,9 @@
 #include <cstring>
-#include <iostream>  //для ввода/вывода
+#include <iostream>
 
 using namespace std;
 
-const string russianVowels = "аяуюоеёэиы";  //Массив с русскими глассными
+const string russianVowels = "Р°СѓРѕРёСЌС‹СЏСЋРµС‘";  // РњР°СЃСЃРёРІ СЃ СЂСѓСЃСЃРєРёРјРё РіР»Р°СЃСЃРЅС‹РјРё
 const int countVowels = (russianVowels.size() / 2);
 
 int cmpVowels(string strInput) {
