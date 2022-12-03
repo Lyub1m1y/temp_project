@@ -3,13 +3,6 @@
 
 using namespace std;
 
-// int end()//функция не дающая закрыться консоли
-// {
-//     cout << endl << "END" << endl;
-//     _getch();
-//     return 0;
-// }
-
 const string russianVowels = "аяуюоеёэиы";  //Массив с русскими глассными
 const int countVowels = (russianVowels.size() / 2);
 
@@ -18,7 +11,6 @@ int cmpVowels(string strInput) {
   int lengthStrInput = strInput.size();
   for (int i = 0; i < lengthStrInput; i++) {
     for (int j = 0; j < countVowels; j++) {
-      // cout << strInput[i] << " " << russianVowels[j];
       if (strInput[i] == russianVowels[j]) {
         sum++;
       }
@@ -32,7 +24,7 @@ int main() {
   string strInput;
   cin >> strInput;
   int sum = 0;
-  sum = cmpVowels(strInput);
+  sum = (cmpVowels(strInput));
   cout << sum;
   return 0;
 }
