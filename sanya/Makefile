@@ -1,10 +1,12 @@
-GPP=g++ -g
+GPP=g++
 # FLAGS=-Wall -Werror -Wextra
-task=task_3
+task=task_4
 
-all: task
+all: clean task
 
 task:
-	rm -rf task_3
 	$(GPP) $(FLAGS) $(task).cpp -o $(task)
 	./$(task)
+
+clean:
+	rm -rf $(task)

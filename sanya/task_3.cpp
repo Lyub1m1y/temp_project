@@ -24,6 +24,6 @@ int main() {
   cin >> strInput;
   int sum = 0;
   sum = (cmpVowels(strInput));
-  cout << sum;
+  cout << sum << endl;
   return 0;
 }
